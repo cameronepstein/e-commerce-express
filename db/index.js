@@ -13,13 +13,6 @@ const pool = new Pool({
   idleTimeoutMillis: 3000,
 });
 
-pool.query('SELECT NOW()', (err, res) => {
-  console.log(err, res);
-  pool.end();
-})
-
 module.exports = {
-  query: (text, params, callback) => {
-    return pool.query(text, params, callback)
-  }
+  query: (text, params) => pool.query(text, params)
 }
